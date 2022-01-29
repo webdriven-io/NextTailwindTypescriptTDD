@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders a button unchanged 1`] = `
+<div
+  className="bg-secondary text-primary font-serif"
+  id="HelloWorldDiv"
+>
+  Hello World!!
+</div>
+`;

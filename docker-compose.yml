@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  app:
+    image: astanek/nextjstailwind:latest
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: unless-stopped
+    ports:
+      - "8090:3000"
+    healthcheck:
+      test: 'curl -f http://localhost:3000/api/hello || exit 1'
+      interval: 30s
+      start_period: 10s
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.80'
+          memory: 500M
+      restart_policy:
+        delay: 30s
+        condition: any
+        max_attempts: 2
+
+
+
+
